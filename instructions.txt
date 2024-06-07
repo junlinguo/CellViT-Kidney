@@ -1,0 +1,6 @@
+training: 
+
+	finetune cellvit256 on pannuke dataset (paper):  
+		/cellvit/CellViT-kidney/cell_segmentation/run_cellvit.py
+		argument parsed: --gpu 0 --config /home/guoj5/Desktop/cellvit/CellViT-kidney/configs/examples/cell_segmentation/train_cellvit_copy.yaml
+		
