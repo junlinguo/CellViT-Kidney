@@ -1,0 +1,12 @@
+Loading model: /home/guoj5/Desktop/cellvit/CellViT/models/pretrained/CellViT-256-x40.pth
+<All keys matched successfully>
+Loading inference transformations
+Detected cells before cleaning: 1238
+Initializing Cell-Postprocessor
+Finding edge-cells for merging
+Removal of cells detected multiple times
+Iteration 0: Found overlap of # cells: 278
+Iteration 1: Found overlap of # cells: 1
+Iteration 2: Found overlap of # cells: 0
+Found all overlapping cells
+Detected cells after cleaning: 735
