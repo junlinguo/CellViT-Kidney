@@ -947,15 +947,15 @@ if __name__ == "__main__":
     path_to_patch_folder = os.path.join(absolute_input_path, relative_input_path)
     absolute_output_path = '/home/guoj5/Desktop/200_annotation/cellvit_pred'
 
-    ## test: 5/29 (temp)
+    ## test: 6/7 (temp)
+    #/path/to/inference/data and /path/to/save/predictions
     absolute_input_path = '/home/guoj5/Desktop/200_annotation'
     relative_input_path = 'Human'
     path_to_patch_folder = os.path.join(absolute_input_path, relative_input_path)
-    absolute_output_path = '/home/guoj5/Desktop/200_annotation/augment_model_predictions/cellvit_pred_tunefold0_all_ep23'
+    absolute_output_path = '/home/guoj5/Desktop/200_annotation/augment_model_predictions/cellvit_tunefold4_epoch25'
 
     # for sam model
     # absolute_output_path = '/home/guoj5/Desktop/200_annotation/augment_model_predictions/cellvit_sam'
-
 
 
     # pre-load the list of directories for inference
