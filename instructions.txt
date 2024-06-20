@@ -21,8 +21,10 @@ E.g., CellViT backbone experiments
 Bash scripts to run experiments in CLI (with wandb online logging)
 
 	/path/to/CellViT-kidney/bash/run_experiment.sh
-		
-		
+
+
+Inference script: /path/to/CellViT-kidney/cell_segmentation/inference/inference_cellvit_experiment_kidney.py
+
 
 
 
