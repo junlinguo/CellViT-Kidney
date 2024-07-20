@@ -1,0 +1,21 @@
+The folder names are fold[number]
+
+fold0: all good labels from human curation. 
+	most labels from model3 when it is "good" (about 93% of all good labels),
+	remaining  good labels are from other two models. (6001 images)
+---------------------------------------------------------------------------------------------
+fold1: a random split of 80% of all good labels of fold0 data (6001*0.8 -> 4800 images)
+
+fold2: a split of 20% of all good labels of fold0 data (6001 * 0.2 -> 1201 images)
+
+fold3: the remaining 7% of fold0, these labels are from other models'
+	 predictions instead of model3  (~400 images)
+
+fold4: Not used 
+
+fold5: all "good" labels available from all models (
+
+fold6: some curated hard train labels 
+
+Code to generate these data and its internal folder structures should be based on this jupyter-notebook ('/mnt/Data/guoj5/WSI/data_analysis/filter_copy.ipynb')
+
