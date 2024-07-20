@@ -15,14 +15,14 @@ python /path/to/cellvit/CellViT-kidney/cell_segmentation/run_cellvit.py --gpu 0 
 
 ## My Experiments
 
-### CellViT Backbone Experiments
+### Experiments - CellViT backbone
 
 **Training/Finetuning Objective:**  
 - Nuclei instance segmentation
 
 **Data:**  
-The data are from the previously curated instance-segmentation data.  
-Data preparation (as PanNuke dataset file structures, currently) follows: `/mnt/Data/guoj5/fintuned_dummy/instructions.txt`
+Data is prepared for instance-segmentation.
+Data preparation pipeline (following PanNuke dataset file structures). An example stored at `/mnt/Data/guoj5/fintuned_dummy/instructions.txt`
 
 **Main script to run the experiment:**  
 `/path/to/CellViT-kidney/cell_segmentation/run_cellvit_mod.py`
