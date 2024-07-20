@@ -23,7 +23,7 @@ python /path/to/cellvit/CellViT-kidney/cell_segmentation/run_cellvit.py --gpu 0 
 **Data:**  
 The data are from the previously curated instance-segmentation data.  
 Data preparation (as PanNuke dataset file structures, currently) follows: `/mnt/Data/guoj5/fintuned_dummy/instructions.txt`
-(or ./dataset_instructions.txt)
+(or `./dataset_instructions.txt`)
 
 **Main script to run the experiment:**  
 `/path/to/CellViT-kidney/cell_segmentation/run_cellvit_mod.py`
