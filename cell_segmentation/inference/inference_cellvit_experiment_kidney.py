@@ -952,7 +952,7 @@ if __name__ == "__main__":
     absolute_input_path = '/home/guoj5/Desktop/200_annotation'
     relative_input_path = 'Human'
     path_to_patch_folder = os.path.join(absolute_input_path, relative_input_path)
-    absolute_output_path = '/home/guoj5/Desktop/200_annotation/augment_model_predictions/cellvit_tunefold5_epoch25'
+    absolute_output_path = '/home/guoj5/Desktop/200_annotation/augment_model_predictions/cellvit_tunefold6_epoch9'
 
     # for sam model
     # absolute_output_path = '/home/guoj5/Desktop/200_annotation/augment_model_predictions/cellvit_sam'
