@@ -15,7 +15,7 @@ python /path/to/cellvit/CellViT-kidney/cell_segmentation/run_cellvit.py --gpu 0 
 
 ## My Experiments
 
-### CellViT Backbone Experiments
+### Experiments - CellViT backbone
 
 **Training/Finetuning Objective:**  
 - Nuclei instance segmentation
