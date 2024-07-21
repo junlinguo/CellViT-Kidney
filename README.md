@@ -18,22 +18,27 @@ python /path/to/cellvit/CellViT-kidney/cell_segmentation/run_cellvit.py --gpu 0 
 ### CellViT Backbone Experiments
 
 **Training/Finetuning Objective:**  
+
 - Nuclei instance segmentation
 
 **Data:**  
+
 The data are from the previously curated instance-segmentation data.  
 Data preparation (as PanNuke dataset file structures, currently) follows: `/mnt/Data/guoj5/fintuned_dummy/instructions.txt`
 (or `./dataset_instructions.txt`)
 
 **Main script to run the experiment:**  
+
 `/path/to/CellViT-kidney/cell_segmentation/run_cellvit_mod.py`
 
 **Experiments Configuration [Important!!!]:**  
+
 `/path/to/CellViT-kidney/configs/examples/cell_segmentation/my_experiment_logs/train_cellvit/xxx.yaml`
 
 The experiments are also logged by Weights and Biases.
 
 **Local run example:**
+
 ```bash
 python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/configs/examples/cell_segmentation/my_experiment_logs/train_cellvit/train_fold0_all.yaml
 ```
@@ -46,11 +51,18 @@ python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/conf
 `/path/to/CellViT-kidney/cell_segmentation/inference/inference_cellvit_experiment_kidney.py`
 
 ## Appendix 
+
 ### Customize 'experiment_cellvit_instance.py' to finetune pretrained model 
 - [Loss functiuons: Disable nuclei type classification and tissue classification objectives](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L392-L420)
 - [Get transforms: Reshape/Crop image to (256, 256) to continue finetuning the pretrained model](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L729)
 - Dataloader: drop_last = True
 - [select_dataset: adding 'PanNukeDataset_mod'](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L530-L536)
 
-### Customize 'cell_segmentation/datasets/pannuke_like_instance.py'
+
+### Customize 'cell_segmentation/datasets/pannuke_like_instance.py' [class PanNukeDataset_mod]
+- [nuclei/tissue types information: disabled](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/datasets/pannuke_like_instance.py#L94-L100)
+- [\_\_getitem\_\_( ): return image, masks, tissue_type(as unknown), image_name](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/datasets/pannuke_like_instance.py#L111).
+
+
+### Customize 'base_ml/base_trainer.py'
 
