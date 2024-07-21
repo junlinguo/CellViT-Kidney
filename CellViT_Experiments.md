@@ -45,3 +45,7 @@ python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/conf
 ### Inference Script
 
 `/path/to/CellViT-kidney/cell_segmentation/inference/inference_cellvit_experiment_kidney.py`
+
+### The main Experiment Run Class module 
+
+`/path/to/CellViT-kidney/cell_segmentation/experiments/experiment_cellvit_instance.py`

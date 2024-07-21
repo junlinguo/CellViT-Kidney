@@ -37,7 +37,7 @@ if __name__ == "__main__":
     configuration_parser = ExperimentBaseParser()
     configuration = configuration_parser.parse_arguments()
 
-    ## fix: to cover 'pannuke like instance'
+    ## mod: cover 'pannuke_like_instance'
     if 'instance' in configuration["data"]["dataset"].lower():
         experiment_class = ExperimentCellVitPanNuke
     elif configuration["data"]["dataset"].lower() == "conic":
