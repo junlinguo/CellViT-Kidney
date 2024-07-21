@@ -47,5 +47,6 @@ python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/conf
 
 ## Appendix 
 ### Customize 'experiment_cellvit_instance.py' to finetune pretrained model 
-- [Disable nuclei type classification and tissue classification objectives](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L392-420)
-- [Reshape/Crop image to (256, 256) to continue finetuning the pretrained model](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L729)
+- [Loss functiuons: Disable nuclei type classification and tissue classification objectives](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L392-L420)
+- [Get transforms: Reshape/Crop image to (256, 256) to continue finetuning the pretrained model](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L729)
+- [Dataloader: drop_last = True]
