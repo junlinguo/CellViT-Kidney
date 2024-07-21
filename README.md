@@ -49,4 +49,8 @@ python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/conf
 ### Customize 'experiment_cellvit_instance.py' to finetune pretrained model 
 - [Loss functiuons: Disable nuclei type classification and tissue classification objectives](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L392-L420)
 - [Get transforms: Reshape/Crop image to (256, 256) to continue finetuning the pretrained model](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L729)
-- [Dataloader: drop_last = True]
+- Dataloader: drop_last = True
+- [select_dataset: adding 'PanNukeDataset_mod'](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L530-L536)
+
+### Customize 'cell_segmentation/datasets/pannuke_like_instance.py'
+
