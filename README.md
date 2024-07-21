@@ -64,7 +64,7 @@ python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/conf
 - [\_\_getitem\_\_( ): return image, masks, tissue_type(as unknown), image_name](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/datasets/pannuke_like_instance.py#L111).
 - "single dummy tissue": Adrenal_gland. Just a placeholder and it does not affect the training objectives
 - [loading instance mask](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/datasets/pannuke_like_instance.py#L227-L245)
-- masks include: instance_map, nuclei_type_map (set to be the same as nuclei_binary map), nuclei_binary_map, hv_map
+- [masks include: instance_map, nuclei_type_map (set to be the same as nuclei_binary map), nuclei_binary_map, hv_map]((https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/datasets/pannuke_like_instance.py#L168))
 
 
 ### Customize 'base_ml/base_trainer.py'
