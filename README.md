@@ -69,3 +69,9 @@ python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/conf
 
 ### Customize 'base_ml/base_trainer.py'
 
+
+### CellViT arch 
+
+`/CellViT-kidney/models/segmentation/cell_segmentation/cellvit.py`
+
+
