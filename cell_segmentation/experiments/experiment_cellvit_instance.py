@@ -189,6 +189,23 @@ class ExperimentCellVitPanNuke(BaseExperiment):
             val_transforms=val_transforms,
         )
 
+        ########################### # debug customized sampler here ##############################################
+        import pandas as pd 
+        full_dataset = train_dataset.dataset 
+        full_df = pd.DataFrame({'images': full_dataset.images, 'class': ['good']*len(full_dataset)})    # match the sequential order of dataset 
+        train_df = full_df.iloc[train_dataset.indices]    
+ 
+
+
+        class_weights = self.calculate_class_weights(train_df, 'class', gamma=0.85)
+
+        sample_weights = self.map_sample_weights(train_df, 'class', class_weights)
+
+        weighted_sampler = self.create_weighted_sampler(sample_weights, train_dataset)
+
+
+
+
         # load sampler
         # training_sampler = self.get_sampler(
         #     train_dataset=train_dataset,
@@ -914,3 +931,4 @@ class ExperimentCellVitPanNuke(BaseExperiment):
                 generator=sampling_generator,
             )
 
+        return sampler 
