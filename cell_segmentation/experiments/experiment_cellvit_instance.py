@@ -888,3 +888,29 @@ class ExperimentCellVitPanNuke(BaseExperiment):
             BaseTrainer: Trainer
         """
         return CellViTTrainer
+
+    # customize calculate_class_weights function 
+    def calculate_class_weights(self, df, label_column, gamma):
+        class_counts = df[label_column].value_counts().to_dict()
+        total_samples = len(df)
+        class_weights = {cls: total_samples / (gamma * count + (1-gamma)*total_samples) for cls, count in class_counts.items()}
+        return class_weights 
+    
+    # customize map_sample_weights 
+    def map_sample_weights(self, df, label_column, class_weights):
+        sample_weights = df[label_column].map(class_weights).values
+        return sample_weights
+    
+    # weighted sampler 
+    def create_weighted_sampler(self, sample_weights, train_dataset):
+        sample_weights_tensor = torch.Tensor(sample_weights)
+        sampling_generator = torch.Generator().manual_seed(
+                self.default_conf["random_seed"]
+            )
+        sampler = WeightedRandomSampler(
+                weights=sample_weights,
+                num_samples=len(train_dataset),
+                replacement=True,
+                generator=sampling_generator,
+            )
+
