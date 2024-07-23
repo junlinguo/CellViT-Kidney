@@ -13,7 +13,7 @@
             "console": "integratedTerminal",
             "args": ["--gpu", "0", 
             "--config", 
-            "/home/guoj5/Desktop/cellvit/CellViT-kidney/configs/examples/cell_segmentation/my_experiment_logs/train_cellvit/train_fold5.yaml"
+            "/home/guoj5/Desktop/cellvit/CellViT-kidney/configs/examples/cell_segmentation/my_experiment_logs/train_cellvit/train_fold6.yaml"
         ]
         }
     ]

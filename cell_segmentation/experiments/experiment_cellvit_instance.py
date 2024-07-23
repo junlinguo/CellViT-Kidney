@@ -191,50 +191,77 @@ class ExperimentCellVitPanNuke(BaseExperiment):
 
         ########################### # debug customized sampler here ##############################################
         import pandas as pd 
-        full_dataset = train_dataset.dataset 
-        full_df = pd.DataFrame({'images': full_dataset.images, 'class': ['good']*len(full_dataset)})    # match the sequential order of dataset 
-        train_df = full_df.iloc[train_dataset.indices]    
- 
+        if isinstance(train_dataset, Subset):
+            full_dataset = train_dataset.dataset 
+            # to do: improve 
+            full_df = pd.DataFrame({'images': full_dataset.images, 'class': ['good']*len(full_dataset)})    # match the sequential order of dataset 
+            train_df = full_df.iloc[train_dataset.indices]
 
+            # need to update full_df / or provided full df first 
 
+        else: 
+            ## suppose read fold2 and fold6, load types.csv 
+            df1 = pd.read_csv('/mnt/Data/guoj5/fintuned_dummy/fold2/types.csv') # fold # self.run_conf['data']['train_folds']
+            df2 = pd.read_csv('/mnt/Data/guoj5/fintuned_dummy/fold6/types.csv') # fold # 
+            references = pd.concat([df1, df2], ignore_index=True)   # to do: process beforehand 
+            
+            ## train_df of all samples and their classes 
+            full_df  = pd.DataFrame({'images': train_dataset.images, 'class': ['init_value']*len(train_dataset)})    # match the sequential order of dataset 
+            full_df["images"] = full_df["images"].astype('str')
+
+            merged_df = full_df.merge(references, on='images', suffixes=("", "_y"), sort=False)
+            merged_df['class'] = merged_df['class_y']
+            merged_df.drop(columns=['class_y'], inplace=True)
+            train_df = merged_df.copy()
+
+            for i in range(len(train_dataset)):
+                if str(train_dataset.images[i]) != train_df['images'][i]:
+                    print(train_dataset.images[i])
+                    print(train_df['images'][i])
+                    print("wrong")
+            print("true: sample_class_weights match the order of dataset")
+                
         class_weights = self.calculate_class_weights(train_df, 'class', gamma=0.85)
-
         sample_weights = self.map_sample_weights(train_df, 'class', class_weights)
-
         weighted_sampler = self.create_weighted_sampler(sample_weights, train_dataset)
 
 
 
 
-        # load sampler
+        # load sampler (default)
         # training_sampler = self.get_sampler(
         #     train_dataset=train_dataset,
         #     strategy=self.run_conf["training"].get("sampling_strategy", "random"),
         #     gamma=self.run_conf["training"].get("sampling_gamma", 1),
         # )
 
-        ##fix: Disable Sampler for new data experiment
-
-        ##fix: define dataloaders (shuffle= True)
-        train_dataloader = DataLoader(
+        train_dataloader =  DataLoader(
             train_dataset,
             batch_size=self.run_conf["training"]["batch_size"],
-            shuffle=True,
+            sampler=weighted_sampler,
             num_workers=8,#default 16
             pin_memory=False,
             worker_init_fn=self.seed_worker,
-            drop_last=True, ##fix: add
+            drop_last=True, # fix: added 
         )
 
-        # # define dataloaders (default)
+        # ##fix: define dataloaders (shuffle= True)
         # train_dataloader = DataLoader(
         #     train_dataset,
         #     batch_size=self.run_conf["training"]["batch_size"],
-        #     sampler=training_sampler,
+        #     shuffle=True,
         #     num_workers=8,#default 16
         #     pin_memory=False,
         #     worker_init_fn=self.seed_worker,
+        #     drop_last=True, ##fix: add
         # )
+
+        # test data loader 
+        for i, data in enumerate(train_dataloader):
+            source_2 = len([i for i in data[-1] if len(i)==9])
+            source_1 = len(data[-1]) - source_2
+            print(f'Batch {i+1},  {source_1} / {source_2}')
+
 
         val_dataloader = DataLoader(
             val_dataset,
