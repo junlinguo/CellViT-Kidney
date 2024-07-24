@@ -55,6 +55,12 @@ python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/conf
 python /path/to/inference_cellvit_experiment_kidney.py --gpu 0 --model /path/to/model_checkpoint.pth --patching True --overlap 0 --datasets_dir /path/to/png_folder(s) --outputs_dir /path/to/output_folder
 ```
 
+### Evaluate 
+
+```bash
+python /path/to/cell_segmentation/evaluate.py --predictions /path/to/the/prediction/folder --gt /path/to/the/groundth/folder --log_csv[optional] /path/to/save/metric/csv
+
+```
 ## Appendix 
 
 ### Customize 'experiment_cellvit_instance.py' to finetune pretrained model 

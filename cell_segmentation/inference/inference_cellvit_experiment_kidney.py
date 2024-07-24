@@ -939,14 +939,9 @@ class InferenceCellViTMoNuSegParser:
 
 
 if __name__ == "__main__":
-
-    import os
-    import shutil
-
     configuration_parser = InferenceCellViTMoNuSegParser()
     configuration = configuration_parser.parse_arguments()
     print(configuration)
-
 
     ## path/to/png folders
     ## for sam model
@@ -972,6 +967,7 @@ if __name__ == "__main__":
         with open(relative_input_path + '_dataset_dirs.pkl', 'wb') as binary_file:
             pickle.dump(dataset_dirs, binary_file)
 
+    # inference on each folder
     resume_dataset_dir = 0
     for i in tqdm.tqdm(range(resume_dataset_dir, len(dataset_dirs))):
         print(i)
