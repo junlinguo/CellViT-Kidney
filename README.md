@@ -37,7 +37,7 @@ Data preparation (as PanNuke dataset file structures, currently) follows: `/mnt/
 
 The experiments are also logged by Weights and Biases.
 
-**Local run example:**
+**Local run training example:**
 
 ```bash
 python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/configs/examples/cell_segmentation/my_experiment_logs/train_cellvit/train_fold0_all.yaml
@@ -49,6 +49,11 @@ python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/conf
 
 ### Inference Script
 `/path/to/CellViT-kidney/cell_segmentation/inference/inference_cellvit_experiment_kidney.py`
+
+
+```bash
+python /path/to/inference_cellvit_experiment_kidney.py --gpu 0 --model /path/to/model_checkpoint.pth --patching True --overlap 0 --datasets_dir /path/to/png_folder(s) --outputs_dir /path/to/output_folder
+```
 
 ## Appendix 
 

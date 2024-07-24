@@ -917,6 +917,20 @@ class InferenceCellViTMoNuSegParser:
             default=True,
         )
 
+        # add: allow inference on multiple folders of png patches
+        parser.add_argument(
+            "--datasets_dir",
+            type = str,
+            help="This directory should contain PNG patches or folders of PNG patches"
+        )
+
+        parser.add_argument(
+            "--outputs_dir",
+            type = str,
+            help="This directory will store predictions folders"
+
+        )
+
         self.parser = parser
 
     def parse_arguments(self) -> dict:
@@ -934,29 +948,19 @@ if __name__ == "__main__":
     print(configuration)
 
 
-    ######
-    # path/to/png folders
-    absolute_input_path = '/home/guoj5/Desktop/wsi-select/Version2_patch_sampled/rodent_kidney_images'
-    relative_input_path = 'dataset3_converted'
-    path_to_patch_folder = os.path.join(absolute_input_path, relative_input_path)
-    absolute_output_path = '/home/guoj5/Desktop/wsi-select/Version2_patch_sampled_predictions/cellvit_pred/rodent_kidney_images'
-
-    # process test data (default for Zach data)
-    absolute_input_path = '/home/guoj5/Desktop/200_annotation'
-    relative_input_path = 'Human'
-    path_to_patch_folder = os.path.join(absolute_input_path, relative_input_path)
-    absolute_output_path = '/home/guoj5/Desktop/200_annotation/cellvit_pred'
-
-    ## test: 6/19 (temp)
-    #/path/to/inference/data and /path/to/save/predictions
-    absolute_input_path = '/home/guoj5/Desktop/200_annotation'
-    relative_input_path = 'Human'
-    path_to_patch_folder = os.path.join(absolute_input_path, relative_input_path)
-    absolute_output_path = '/home/guoj5/Desktop/200_annotation/augment_model_predictions/cellvit_tunefold6_epoch9'
-
-    # for sam model
+    ## path/to/png folders
+    ## for sam model
     # absolute_output_path = '/home/guoj5/Desktop/200_annotation/augment_model_predictions/cellvit_sam'
 
+    # # update orignal cellvit
+    # absolute_input_path = '/home/guoj5/Documents'
+    # relative_input_path = '200_annotation_qa'
+    # path_to_patch_folder = os.path.join(absolute_input_path, relative_input_path)
+    # absolute_output_path = '/home/guoj5/Desktop/200_annotation/temp/cellvit_pred'
+
+    relative_input_path = os.path.basename(configuration['datasets_dir'])
+    path_to_patch_folder = configuration['datasets_dir']
+    absolute_output_path = configuration['outputs_dir']
 
     # pre-load the list of directories for inference
     if os.path.exists(relative_input_path + '_dataset_dirs.pkl'):

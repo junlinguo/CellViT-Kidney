@@ -108,4 +108,7 @@ if __name__ == "__main__":
             #     dataset_config,
             #     generate_plots=False,
             # )
+
+
+            
     wandb.finish()
