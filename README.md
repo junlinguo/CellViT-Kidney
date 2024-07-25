@@ -43,9 +43,6 @@ The experiments are also logged by Weights and Biases.
 python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/configs/examples/cell_segmentation/my_experiment_logs/train_cellvit/train_fold0_all.yaml
 ```
 
-### Bash Scripts to Run Experiments in CLI (with wandb online logging)
-
-`/path/to/CellViT-kidney/bash/run_experiment.sh`
 
 ### Inference Script
 ```bash
