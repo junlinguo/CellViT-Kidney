@@ -48,12 +48,11 @@ python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/conf
 `/path/to/CellViT-kidney/bash/run_experiment.sh`
 
 ### Inference Script
-`/path/to/CellViT-kidney/cell_segmentation/inference/inference_cellvit_experiment_kidney.py`
-
-
 ```bash
 python /path/to/inference_cellvit_experiment_kidney.py --gpu 0 --model /path/to/model_checkpoint.pth --patching True --overlap 0 --datasets_dir /path/to/png_folder(s) --outputs_dir /path/to/output_folder
 ```
+`python cell_segmentation/inference/inference_cellvit_experiment_kidney.py --gpu 0 --model /home/guoj5/Documents/cell_vit_test/2024-07-22T171814_CellViT-256-Fold6-TRAIN/checkpoints/latest_checkpoint.pth --patching True --overlap 0 --datasets_dir /home/guoj5/Documents/200_annotation_all/png --outputs_dir /home/guoj5/Desktop/200_annotation/temp_724/finetuned`
+
 
 ### Evaluate 
 
@@ -61,6 +60,11 @@ python /path/to/inference_cellvit_experiment_kidney.py --gpu 0 --model /path/to/
 python /path/to/cell_segmentation/evaluate.py --predictions /path/to/the/prediction/folder --gt /path/to/the/groundth/folder --log_csv[optional] /path/to/save/metric/csv
 
 ```
+
+### Bash script running experiments above 
+
+`./bash/xxx_run.sh`
+
 ## Appendix 
 
 ### Customize 'experiment_cellvit_instance.py' to finetune pretrained model 
