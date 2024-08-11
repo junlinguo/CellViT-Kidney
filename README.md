@@ -1,7 +1,18 @@
 
 # CellViT Experiments
 
-## Finetune CellViT256 (HVNet Decoder) on PanNuke Dataset (Paper Experiment)
+## Inference Script
+```bash
+python /path/to/cell_segmentation/inference/inference_cellvit_experiment_kidney.py --gpu 0 --model /path/to/model_checkpoint.pth --patching True --overlap 0 --datasets_dir /path/to/png_folder(s) --outputs_dir /path/to/output_folder
+```
+The cellvit pretrained checkpoint from CellViT paper can be found: 
+- [CellViT-SAM-H](https://drive.google.com/uc?export=download&id=1MvRKNzDW2eHbQb5rAgTEp6s2zAXHixRV) 🚀
+- [CellViT-256](https://drive.google.com/uc?export=download&id=1tVYAapUo1Xt8QgCN22Ne1urbbCZkah8q) (The one used in this repo)
+- [CellViT-SAM-H-x20](https://drive.google.com/uc?export=download&id=1wP4WhHLNwyJv97AK42pWK8kPoWlrqi30)
+- [CellViT-256-x20](https://drive.google.com/uc?export=download&id=1w99U4sxDQgOSuiHMyvS_NYBiz6ozolN2)
+
+
+## Paper Experiment: Finetune CellViT256 (HVNet Decoder) on PanNuke Dataset 
 
 **Objective:**  
 - Nuclei instance segmentation
@@ -13,20 +24,16 @@
 python /path/to/cellvit/CellViT-kidney/cell_segmentation/run_cellvit.py --gpu 0 --config /home/guoj5/Desktop/cellvit/CellViT-kidney/configs/examples/cell_segmentation/train_cellvit_copy.yaml
 ```
 
-
-## Training Experiments
-
-**Training/Finetuning Objective:**  
-
-- Nuclei instance segmentation
+## Flexible Training Experiments
+- Nuclei instance segmentation only
 
 **Data:**  
 
-The data are from the previously curated instance-segmentation data.  
+instance-segmentation data.  
 Data preparation (as PanNuke dataset file structures, currently) follows: `/mnt/Data/guoj5/fintuned_dummy/instructions.txt`
 (or `./dataset_instructions.txt`)
 
-**Main script to run the experiment:**  
+**Main script for training experiment:**  
 
 `/path/to/CellViT-kidney/cell_segmentation/run_cellvit_mod.py`
 
@@ -36,20 +43,13 @@ Data preparation (as PanNuke dataset file structures, currently) follows: `/mnt/
 
 The experiments are also logged by Weights and Biases.
 
-**Local run training example:**
+**Local run of training bash script example:**
 
 ```bash
 python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/configs/examples/cell_segmentation/my_experiment_logs/train_cellvit/train_fold0_all.yaml
 ```
 
-
-## Inference Script
-```bash
-python /path/to/cell_segmentation/inference/inference_cellvit_experiment_kidney.py --gpu 0 --model /path/to/model_checkpoint.pth --patching True --overlap 0 --datasets_dir /path/to/png_folder(s) --outputs_dir /path/to/output_folder
-```
-The cellvit pretrained checkpoint from CellViT paper can be found: 
 ## Evaluate 
-
 ```bash
 python /path/to/cell_segmentation/evaluate.py --predictions /path/to/the/prediction/folder --gt /path/to/the/groundth/folder --log_csv[optional] /path/to/save/metric/csv
 
@@ -59,7 +59,7 @@ python /path/to/cell_segmentation/evaluate.py --predictions /path/to/the/predict
 
 `./bash/xxx_run.sh`
 
-## Appendix 
+## Appendix: Notes for the code modification to allowing training the CellViT model without tissue classification information, etc
 
 ### Customize 'experiment_cellvit_instance.py' to finetune pretrained model 
 - [Loss functiuons: Disable nuclei type classification and tissue classification objectives](https://github.com/junlinguo/CellViT-Kidney/blob/main/cell_segmentation/experiments/experiment_cellvit_instance.py#L392-L420)
