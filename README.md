@@ -63,12 +63,17 @@ The experiments are also logged by Weights and Biases.
 **Local run of training bash script example:**
 
 ```bash
-python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/configs/examples/cell_segmentation/my_experiment_logs/train_cellvit/train_fold0_all.yaml
+python /path/to/run_cellvit_mod.py \ 
+        --gpu 0 \
+        --config /path/to/CellViT-kidney/configs/examples/cell_segmentation/my_experiment_logs/train_cellvit/train_fold0_all.yaml
 ```
 
 ## Evaluate 
 ```bash
-python /path/to/cell_segmentation/evaluate.py --predictions /path/to/the/prediction/folder --gt /path/to/the/groundth/folder --log_csv[optional] /path/to/save/metric/csv
+python /path/to/cell_segmentation/evaluate.py \
+        --predictions /path/to/the/prediction/folder \
+        --gt /path/to/the/groundth/folder  \
+        --log_csv[optional] /path/to/save/metric/csv
 
 ```
 
