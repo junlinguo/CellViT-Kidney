@@ -12,6 +12,8 @@ python /path/to/cell_segmentation/inference/inference_cellvit_experiment_kidney.
     --datasets_dir /path/to/png_folder(s) \
     --outputs_dir /path/to/output_folder
 ```
+or running the bash script at: 
+https://github.com/junlinguo/CellViT-Kidney/blob/main/bash/inference_run.sh
 
 
 
@@ -21,6 +23,11 @@ The cellvit pretrained checkpoint from CellViT paper can be found:
 - [CellViT-SAM-H-x20](https://drive.google.com/uc?export=download&id=1wP4WhHLNwyJv97AK42pWK8kPoWlrqi30)
 - [CellViT-256-x20](https://drive.google.com/uc?export=download&id=1w99U4sxDQgOSuiHMyvS_NYBiz6ozolN2)
 
+  
+## Reference
+- CellViT paper: [link](https://arxiv.org/abs/2306.15350)
+- CellViT github: this forked repo or [link url](https://github.com/TIO-IKIM/CellViT)
+- This repo is based on the paper [TBD]
 
 ## Paper Experiment: Finetune CellViT256 (HVNet Decoder) on PanNuke Dataset 
 
