@@ -26,7 +26,7 @@ The cellvit pretrained checkpoint from CellViT paper can be found:
   
 ## Reference
 - CellViT paper: [link](https://arxiv.org/abs/2306.15350)
-- CellViT github: this forked repo or [link url](https://github.com/TIO-IKIM/CellViT)
+- CellViT github: this forked repo or [link](https://github.com/TIO-IKIM/CellViT)
 - This repo is based on the paper [TBD]
 
 ## Paper Experiment: Finetune CellViT256 (HVNet Decoder) on PanNuke Dataset 
