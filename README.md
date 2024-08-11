@@ -13,9 +13,8 @@
 python /path/to/cellvit/CellViT-kidney/cell_segmentation/run_cellvit.py --gpu 0 --config /home/guoj5/Desktop/cellvit/CellViT-kidney/configs/examples/cell_segmentation/train_cellvit_copy.yaml
 ```
 
-## My Experiments
 
-### CellViT Backbone Experiments
+## Training Experiments
 
 **Training/Finetuning Objective:**  
 
@@ -44,21 +43,19 @@ python /path/to/run_cellvit_mod.py --gpu 0 --config /path/to/CellViT-kidney/conf
 ```
 
 
-### Inference Script
+## Inference Script
 ```bash
-python /path/to/inference_cellvit_experiment_kidney.py --gpu 0 --model /path/to/model_checkpoint.pth --patching True --overlap 0 --datasets_dir /path/to/png_folder(s) --outputs_dir /path/to/output_folder
+python /path/to/cell_segmentation/inference/inference_cellvit_experiment_kidney.py --gpu 0 --model /path/to/model_checkpoint.pth --patching True --overlap 0 --datasets_dir /path/to/png_folder(s) --outputs_dir /path/to/output_folder
 ```
-`python cell_segmentation/inference/inference_cellvit_experiment_kidney.py --gpu 0 --model /home/guoj5/Documents/cell_vit_test/2024-07-22T171814_CellViT-256-Fold6-TRAIN/checkpoints/latest_checkpoint.pth --patching True --overlap 0 --datasets_dir /home/guoj5/Documents/200_annotation_all/png --outputs_dir /home/guoj5/Desktop/200_annotation/temp_724/finetuned`
-
-
-### Evaluate 
+The cellvit pretrained checkpoint from CellViT paper can be found: 
+## Evaluate 
 
 ```bash
 python /path/to/cell_segmentation/evaluate.py --predictions /path/to/the/prediction/folder --gt /path/to/the/groundth/folder --log_csv[optional] /path/to/save/metric/csv
 
 ```
 
-### Bash script running experiments above 
+## Bash script running experiments above 
 
 `./bash/xxx_run.sh`
 
