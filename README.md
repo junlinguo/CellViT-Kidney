@@ -2,9 +2,19 @@
 # CellViT Experiments
 
 ## Inference Script
+(image patch size of 512 by 512)
 ```bash
-python /path/to/cell_segmentation/inference/inference_cellvit_experiment_kidney.py --gpu 0 --model /path/to/model_checkpoint.pth --patching True --overlap 0 --datasets_dir /path/to/png_folder(s) --outputs_dir /path/to/output_folder
+python /path/to/cell_segmentation/inference/inference_cellvit_experiment_kidney.py \
+    --gpu 0 \
+    --model /path/to/model_checkpoint.pth \
+    --patching True \
+    --overlap 0 \
+    --datasets_dir /path/to/png_folder(s) \
+    --outputs_dir /path/to/output_folder
 ```
+
+
+
 The cellvit pretrained checkpoint from CellViT paper can be found: 
 - [CellViT-SAM-H](https://drive.google.com/uc?export=download&id=1MvRKNzDW2eHbQb5rAgTEp6s2zAXHixRV) 🚀
 - [CellViT-256](https://drive.google.com/uc?export=download&id=1tVYAapUo1Xt8QgCN22Ne1urbbCZkah8q) (The one used in this repo)
