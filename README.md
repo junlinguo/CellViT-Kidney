@@ -6,10 +6,10 @@
 ```bash
 python /path/to/cell_segmentation/inference/inference_cellvit_experiment_kidney.py \
     --gpu 0 \
-    --model /path/to/model_checkpoint.pth \
+    --model /path/to/pretrained_checkpoint \
     --patching True \
     --overlap 0 \
-    --datasets_dir /path/to/png_folder(s) \
+    --datasets_dir /path/to/png_folder \
     --outputs_dir /path/to/output_folder
 ```
 or running the bash script at: 
