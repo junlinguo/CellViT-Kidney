@@ -41,7 +41,7 @@ The cellvit pretrained checkpoint from CellViT paper can be found:
 python /path/to/cellvit/CellViT-kidney/cell_segmentation/run_cellvit.py --gpu 0 --config /home/guoj5/Desktop/cellvit/CellViT-kidney/configs/examples/cell_segmentation/train_cellvit_copy.yaml
 ```
 
-# Flexible Training Experiments [This is for customized instance segmentation task/dataset only] (Optional)
+# Flexible Training Experiments (Optional)
 - Nuclei instance segmentation only
 
 **Data:**  
