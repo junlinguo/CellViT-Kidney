@@ -13,7 +13,7 @@ fold3: the remaining 7% of fold0, these labels are from other models'
 
 fold4: Not used 
 
-fold5: all "good" labels available from all models (
+fold5: all "good" labels available from all models
 
 fold6: some curated hard train labels 
 
