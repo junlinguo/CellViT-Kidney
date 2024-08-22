@@ -1,5 +1,7 @@
 
-# CellViT Experiments
+# CellViT-Kidney 
+For the purpose of model inference on any 512x512 PNG files (Finished), please follow the **Inference Script** and **Reference** sections. The remaining part is for training a customized Cellvit model on kidney images without tissue or nuclei type labels (still in progress). More details about the training will be provided
+
 
 ## Inference Script
 (image patch size of 512 by 512)
