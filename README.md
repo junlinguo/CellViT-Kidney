@@ -31,7 +31,7 @@ The cellvit pretrained checkpoint from CellViT paper can be found:
 - CellViT github: this forked repo or [link](https://github.com/TIO-IKIM/CellViT)
 - This repo is based on the paper: [Assessment of Cell Nuclei AI Foundation Models in Kidney Pathology](https://arxiv.org/abs/2408.06381)
 
-## Paper Experiment: Finetune CellViT256 on PanNuke Dataset 
+## CellVit Paper Experiment Implementation: Finetune CellViT256 on PanNuke Dataset 
 
 **Objective:**  
 - Nuclei instance segmentation
