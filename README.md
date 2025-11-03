@@ -1,3 +1,4 @@
+This fine-tuning support for class-agnostic CellViT instance segmentation is being merged into the [Cell AI Foundation Models (FMs) for Nuclei Segmentation repository](https://github.com/hrlblab/AFM_kidney_cells), including original Cell FMs inference, custom models fine-tuning codebases, and an illustration of the proposed **Multi-FMs Human-in-the-Loop Data Enrichment Framework**.
 
 # CellViT-Kidney 
 For the purpose of model inference on any 512x512 PNG files (Finished), please follow the **Inference Script** and **Reference** sections. The remaining part is for training a customized Cellvit model on kidney images without tissue or nuclei type labels (still in progress). More details about the training will be provided
